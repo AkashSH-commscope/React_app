@@ -3,13 +3,20 @@ import {useState,useEffect} from "react";
 function Dashboard() {
     
     let [is12Hour,setis12Hour] = useState(true);
-    let now=new Date(); // fetch current time from system
+    let [currentTime,setCurrentTime] = useState(new Date());
+     // fetch current time from system
     let format=new Intl.DateTimeFormat("en-US",{ // logic to format it in
         hour:"2-digit",
         minute:"2-digit",
+        second:"2-digit",
         hour12:is12Hour,
     });
-    let formattedTime=format.format(now);// apply to current time
+    useEffect(()=>{ // for update every second
+        let interval=setInterval(()=>{
+            setCurrentTime(new Date());
+        },10000)
+    },[]);
+    let formattedTime=format.format(currentTime);// apply to current time
     const handleToggle=()=>{
         if(is12Hour){
             setis12Hour(false);
