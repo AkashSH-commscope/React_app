@@ -26,13 +26,13 @@ function Dashboard() {
         }
     }
     return (
-        <div>
+        <>
             <h1>Current Time: {formattedTime}</h1>
             <h1>Is it in 12 Hour Format: {is12Hour.toString()}</h1>
             <h1>Dashboard</h1>
             <button onClick={handleToggle}>Toggle Time Format</button>
             
-        </div>
+        </>
     );
 }
 
