@@ -2,7 +2,7 @@ import React from "react";
 import {useState} from "react";
 import { useNavigate } from "react-router-dom";
 
-function Login(){
+function Login({}){
     const [username,setUsername]= useState("");
     const [password,setPassword]= useState("");
     const navigate = useNavigate();
@@ -12,8 +12,6 @@ function Login(){
         if (username==="admin" && password==="password"){
             alert("Login Successful");
             navigate('/dashboard');
-        } else {
-            alert("Invalid username or password");
         }
     }
     
